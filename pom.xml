@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.2.RELEASE</version>
+  </parent>
+
+  <groupId>com.yongkj</groupId>
+  <artifactId>study</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>study</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <!--web应用基本环境配置 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <!--<exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+    </exclusions>-->
+    </dependency>
+    <!--<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <scope>provided</scope>
+	</dependency>-->
+    <!--添加热部署-->
+	<dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-devtools</artifactId>
+       <optional>true</optional>
+	</dependency>
+    <dependency>
+	   <groupId>org.springframework.boot</groupId>
+	   <artifactId>spring-boot-starter-jdbc</artifactId>
+	</dependency>
+    <dependency>
+	   <groupId>mysql</groupId>
+	   <artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	<!-- druid启动器
+     druid1.1.6启动器有严重bug，直接导致项目运行失败
+     druid1.1.10没有该问题
+	-->
+	<dependency>
+	   <groupId>com.alibaba</groupId>
+	   <artifactId>druid-spring-boot-starter</artifactId>
+	   <version>1.1.10</version>
+	</dependency>
+    <!-- mybatis的启动器 -->
+	<dependency>
+	   <groupId>org.mybatis.spring.boot</groupId>
+	   <artifactId>mybatis-spring-boot-starter</artifactId>
+	   <version>1.3.2</version>
+	</dependency>
+    <!-- 通用mapper的启动器 -->
+	<dependency>
+	   <groupId>tk.mybatis</groupId>
+	   <artifactId>mapper-spring-boot-starter</artifactId>
+	   <version>2.0.2</version>
+	</dependency>
+	<!-- json数据格式支持 -->
+	<dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20190722</version>
+    </dependency>
+	<dependency>
+	    <groupId>commons-collections</groupId>
+	    <artifactId>commons-collections</artifactId>
+	    <version>3.2.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-logging</groupId>
+	    <artifactId>commons-logging</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.6</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-beanutils</groupId>
+	    <artifactId>commons-beanutils</artifactId>
+	    <version>1.9.4</version>
+	</dependency>
+	<dependency>
+	    <groupId>net.sf.json-lib</groupId>
+	    <artifactId>json-lib</artifactId>
+	    <version>2.4</version>
+	    <classifier>jdk15</classifier>
+	</dependency>
+	<dependency>
+	    <groupId>net.sf.ezmorph</groupId>
+	    <artifactId>ezmorph</artifactId>
+	    <version>1.0.6</version>
+	</dependency>
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.17</version>
+	</dependency>
+	<!-- java爬虫框架 -->
+	<dependency>
+	    <groupId>cn.edu.hfut.dmic.webcollector</groupId>
+	    <artifactId>WebCollector</artifactId>
+	    <version>2.73-alpha</version>
+	</dependency>
+	<!-- 解析HTML文档的工具 -->
+	<dependency>
+	    <groupId>org.jsoup</groupId>
+	    <artifactId>jsoup</artifactId>
+	    <version>1.13.1</version>
+	</dependency>
+	<!-- 文件上传插件 -->
+	<dependency>
+	    <groupId>commons-fileupload</groupId>
+	    <artifactId>commons-fileupload</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.8.0</version>
+	</dependency>
+  </dependencies>
+  <build>
+    <finalName>study</finalName>
+    <plugins>
+    <!-- spring-boot-maven-plugin插件就是打包spring boot应用的 -->
+       <plugin>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-maven-plugin</artifactId>
+		  <configuration>
+		  	<fork>true</fork>
+		  </configuration>
+		</plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,247 @@
+.footer{
+	min-height: 340px;
+	background:#1f1f2b;
+	color:#9599af;
+}
+.footer .container{
+	font-style: normal;
+	font-size: 14px;
+}
+
+.footer .container a{
+	text-decoration: none;
+	color:#9599af;
+	line-height: 2em;
+}
+.footer .container a:hover{
+    color:#fff;
+}
+.footer .container .col-xs-6 a{
+	display: block;
+}
+.footer .container .font-bold{
+    color:#fff;
+}
+
+.footer .container>div.col-sm-3{
+	margin-top: 50px;
+}
+.footer .container>div.col-sm-3 .font20{
+	margin-bottom: 20px;
+	color:#fff;
+	font-weight: 800;
+}
+.footer .mt22{
+	margin-top: 22px;
+}
+
+.footer .container .frdlink>*{
+	display: inline-block;
+}
+.footer .container .frdlink>span{
+	width: 80px;
+}
+.footer .container .frdlink>a{
+	margin-left: 10px;
+}
+
+.footer .container .copyright{
+    margin: 20px 0;
+    text-align: center;
+    color: #545763;
+    border-top: 1px solid #2d2d42;
+    padding-top: 15px;
+}
+
+
+
+
+body{overflow-x: hidden;}
+.footer .container .frdlink {
+    /*height:50px;*/
+    /*overflow: hidden;*/
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 2.3em;
+}
+.footer .container .frdlink.show-all {
+    height: auto !important;
+    /*background: rgba(255,255,255,0.05);*/
+    /*transition: background 0.168s ease-in-out;*/
+    border-radius: 4px;
+}
+.footer .container .frdlink>span{
+    font-weight: bold;
+}
+.footer .container .frdlink>a{
+    line-height: 2.2em;
+    margin-left:0;margin-right:10px;
+}
+
+.footer .cert{content:'';border-top: 0;border-bottom: 4px dashed;}
+.footer .article-more{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 192px;
+    border-radius: 4px;
+    padding: 15px 20px;
+    background: rgb(42, 42, 54);
+    border: 1px solid rgb(45, 45, 66);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: none;
+}
+.footer .article-more p{
+    color: #ddd;font-size:12px;
+}
+.footer .article-more a {
+    display: inline-block;
+    width: 130px;font-size:12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.footer .container {position: relative;}
+
+/*----------------客服----------------*/
+.kefu-box{
+    bottom: 200px;
+    height: 180px;
+    position: fixed;
+    width: 80px;
+    right: 10px;
+    z-index: 9999;
+}
+.kefu-box .container-fluid{
+    width: 80px;
+    right: 10px;
+    text-align: center;
+}
+.kefu-box .container-fluid>div{
+    height:214px;
+}
+.kefu-box .container-fluid .item{
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.20);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    line-height: 50px;
+    cursor: pointer;
+    float: right;
+}
+.kefu-box .container-fluid .item:hover{
+    background: #108EE9;
+}
+.kefu-box .container-fluid .telitem{
+    width: 168px;
+    overflow: hidden;
+}
+.kefu-box .container-fluid .telitem .tel-icon{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    float: left;
+}
+.kefu-box .container-fluid .tel-info{
+    display: none;
+}
+.kefu-box .container-fluid .telitem .tel-info{
+    display: inline-block;
+    height: 50px;
+    line-height: 20px;
+    width: 118px;
+    margin-left: -15px;
+    display: inline-block;
+}
+.kefu-box .container-fluid .telitem .tel-info p{
+    margin-bottom: 0px;
+    font-family: PingFangSC-Light;
+}
+.kefu-box .container-fluid .telitem .tel-info .tel-number{
+    font-size: 16px;
+    color: #FFFFFF;
+    height: 25px;
+    line-height: 30px;
+}
+.kefu-box .container-fluid .telitem .tel-info .wk-time{
+    font-size: 12px;
+    color: rgba(255,255,255,0.80);
+}
+.kefu-box .container-fluid .backTop{
+    line-height: 20px;
+    height: 50px;
+    width: 50px;
+    padding-top: 5px;
+    display: inline-block;
+    font-family: PingFangSC-Medium;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+}
+/*----------------客服detail----------------*/
+.kefu-box .kf-box{
+    position: absolute;
+    right: 60px;
+    text-align: left;
+    padding: 5px 15px 25px;
+    background: #FFFFFF;
+    border-top: 4px solid #108EE9;
+    box-shadow: 0 3px 30px 0 rgba(0,0,0,0.20);
+    display: none;
+    width:250px;
+}
+.kefu-box .kf-box .kf-head{
+    border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+.kefu-box .kf-box .kf-head>div{
+    width: 180px;
+}
+.kefu-box .kf-box .kf-head .kf-head-icon{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    float: left;
+    line-height: 50px;
+    text-align: left;
+}
+.kefu-box .kf-box .kf-head .kf-head-info{
+    display: inline-block;
+    height: 50px;
+    line-height: 20px;
+}
+
+.kefu-box .kf-box .kf-head .kf-head-info p:first-child{
+    margin-bottom: 0px;
+    font-family: PingFangSC-Light;
+    font-size: 16px;
+    color: #108EE9;
+    height: 25px;
+    line-height: 30px;
+}
+.kefu-box .kf-box .kf-head .kf-head-info p:last-child{
+    margin-bottom: 0px;
+    font-family: PingFangSC-Light;
+    font-size: 12px;
+    color: rgba(126,126,126,0.80);
+}
+.kefu-box .kf-box .kf-info>div:first-child{
+    margin: 15px 0px;
+}
+.kefu-box .kf-box .kf-info p{
+    margin-bottom: 5px;
+}
+.kefu-box .kf-box .kf-info p span:first-child{
+    font-family: PingFangSC-Semibold;
+    font-size: 13px;
+    color: #888888;
+}
+.kefu-box .kf-box .kf-info p span:last-child{
+    font-family: PingFangSC-Light;
+    font-size: 13px;
+    color: #3A3A3A;
+    line-height: 18px;
+}
+/*----------------客服----------------*/

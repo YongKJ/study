@@ -1,0 +1,42 @@
+.btn-circle {
+	width: 40px;
+	height: 40px;
+	padding-left: 13px;
+	padding-bottom: 4px;
+	border-radius: 20px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+	outline: none;
+}
+
+::-webkit-scrollbar {
+	/*隐藏滚轮*/
+	display: none;
+}
+
+.code {
+	position: relative;
+	right: 15px;
+	bottom: 3px;
+	border-radius: 5px;
+}
+
+.formRegister {
+	position: relative;
+	right: 11px;
+	top: 8px;
+}
+
+@media screen and (max-width: 768px) {
+	.formRegister {
+		right: 0px;
+	}
+}

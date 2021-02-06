@@ -1,0 +1,116 @@
+.greenBox {
+	margin-top: 10px;
+	margin-bottom: 30px;
+	max-width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	word-wrap: break-word !important;
+}
+
+.greenTriangleLeft {
+	max-width: 100%;
+	box-sizing: border-box;
+	width: 0px;
+	display: inline-block;
+	vertical-align: middle;
+	border-left: 5px solid rgb(16, 138, 68);
+	border-top: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	word-wrap: break-word !important;
+	margin-top: 18px;
+	position: relative;
+	left: 4px;
+}
+
+.greenSectionText {
+	margin-right: -5px;
+	margin-left: -5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	max-width: 100%;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+	border-top: 1px solid rgb(16, 138, 68);
+	border-bottom: 1px solid rgb(16, 138, 68);
+	border-right-color: rgb(16, 138, 68);
+	border-left-color: rgb(16, 138, 68);
+	word-wrap: break-word !important;
+}
+
+.greenSectionTextP {
+	max-width: 100%;
+	box-sizing: border-box;
+	min-height: 1em;
+	word-wrap: break-word !important;
+	margin-top: 10px;
+}
+
+.greenSectionTextStrong {
+	max-width: 100%;
+	box-sizing: border-box;
+	word-wrap: break-word !important;
+}
+
+.greenTriangleRight {
+	max-width: 100%;
+	box-sizing: border-box;
+	width: 0px;
+	display: inline-block;
+	vertical-align: middle;
+	border-right: 5px solid rgb(16, 138, 68);
+	border-top: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	word-wrap: break-word !important;
+	margin-top: 18px;
+	position: relative;
+	right: 4px;
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+	z-index: 2;
+	color: #3c9bf4;
+	background: #fff;
+	border-color: #fff;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	background: transparent;
+	color: #fff;
+	border-color: #fff;
+	border: 1px solid #ddd;
+}
+
+::-webkit-scrollbar {
+	/*隐藏滚轮*/
+	display: none;
+}
+
+.code {
+	position: relative;
+	right: 15px;
+	bottom: 3px;
+	border-radius: 5px;
+}
+
+.formRegister {
+	position: relative;
+	right: 11px;
+	top: 8px;
+}
+
+@media screen and (max-width: 768px) {
+	.formRegister {
+		right: 0px;
+	}
+}

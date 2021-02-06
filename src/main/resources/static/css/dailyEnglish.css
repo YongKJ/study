@@ -1,0 +1,41 @@
+.essay {
+	font-size: 17px;
+	background-color: #F8F9FA;
+	border-radius: 5px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+::-webkit-scrollbar {
+	/*隐藏滚轮*/
+	display: none;
+}
+
+.code {
+	position: relative;
+	right: 15px;
+	bottom: 3px;
+	border-radius: 5px;
+}
+
+.formRegister {
+	position: relative;
+	right: 11px;
+	top: 8px;
+}
+
+@media screen and (max-width: 768px) {
+	.formRegister {
+		right: 0px;
+	}
+}
+
+.bootstrap-datetimepicker-widget {
+	background-color: #FFFFFF;
+	color: #333333;
+}
+
+.dailyEnglish {
+	font-family: 'Microsoft Yahei', sans-serif, Arial, Verdana;
+	color: #333;
+}

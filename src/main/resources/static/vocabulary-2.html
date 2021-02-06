@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="description" content="英语随身学">
+		<title>英语翻译</title>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style_header.css" />
+		<link rel="stylesheet" type="text/css" href="css/vocabulary-2.css" />
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css" />
+	</head>
+	<body class="page-download">
+		<div id="top" class="header">
+			<div class="header-content">
+				<div class="container">
+					<nav class="navbar navbar-default" role="navigation">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kod-navbar-collapse">
+									<span class="sr-only">切换导航</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<span class="logo">
+									<a href="/"><img src="./img/0b98cb865ca540ce99799f476f413238.png"></a>
+								</span>
+							</div>
+							<div class="collapse navbar-collapse" id="kod-navbar-collapse">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="/" class="nav-index">首页</a>
+									</li>
+									<li>
+										<a href="alphabet.html" class="nav-download">字母</a>
+									</li>
+									<li>
+										<a href="phonetic-symbol.html" class="nav-price">音标</a>
+									</li>
+									<li class="dropdown">
+										<a id="vocabulary" href="#" class="dropdown-toggle nav-home" data-toggle="dropdowns">
+											词汇 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a href="vocabulary-1.html" class="nav-kodexplorer">日常生活常用词汇</a></li>
+											<li><a href="vocabulary-2.html" class="nav-kodoffice">高中英语教材词汇</a></li>
+											<li><a href="vocabulary-3.html" class="nav-kodeditor">大学英语四级词汇</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="translate.html" class="nav-help">翻译</a>
+									</li>
+									<li>
+										<a href="article.html" class="nav-">文章</a>
+									</li>
+									<li>
+										<a href="dailyEnglish.html" class="nav-about">每日英语</a>
+									</li>
+									<li class="dropdown">
+										<a id="user" href="#" class="dropdown-toggle nav-home" data-toggle="dropdowns">
+											用户 <b class="caret"></b>
+										</a>
+										<ul class="dropdown-menu" style="text-align: center;">
+											<li id="user-Login"><a href="#" class="nav-kodexplorer" data-toggle="modal" data-target="#loginModal">登录</a></li>
+											<li id="user-Rigester"><a href="#" class="nav-kodoffice" data-toggle="modal" data-target="#regModal">注册</a></li>
+											<li id="user-Notebook" style="display: none;"><a href="notebook.html" class="nav-kodeditor">单词本</a></li>
+											<li id="sign-out-one" style="display: none;" onclick="signOut()"><a href="#" class="nav-kodeditor">退出登录</a></li>
+										</ul>
+									</li>
+									<li id="sign-out-two" style="display: none;" onclick="signOut()">
+										<a href="#" class="nav-about">退出登录</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div class="header-banner"></div>
+			<div class="head-tit-box">
+				<div class="container">
+					<h1>英语词汇</h1>
+					<h4>重温高中英语词汇，感受过去学习热情</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade bs-example-modal-sm" id="loginModal" tabindex="-1" role="ialog" aria-labelledby="loginModelTitle">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content" style="width: 350px;margin:0 auto;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="loginModelTitle">
+							<span class="glyphicon glyphicon-user"></span> 账户登录
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div id="myAlert1" class="alert alert-success" style="display: none;"></div>
+						<div id="myAlert2" class="alert alert-warning" style="display: none;"></div>
+						<form class="form-horizontal formRegister">
+							<div class="form-group" id="accountidbox">
+								<label for="accountid" id="accountidtitle" class="col-sm-3 col-xs-3 control-label">账户:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="text" class="form-control" id="accountid" placeholder="请输入账户……">
+								</div>
+							</div>
+							<div class="form-group" id="accountpwdbox">
+								<label for="accountpwd" id="accountpwdtitle" class="col-sm-3 col-xs-3 control-label">密码:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="password" class="form-control" id="accountpwd" placeholder="请输入密码……">
+								</div>
+							</div>
+							<div class="form-group" id="accountpwdbox">
+								<label for="accountpwd" id="accountpwdtitle" class="col-sm-3 col-xs-3 control-label">验证:</label>
+								<div class="col-sm-5 col-xs-5">
+									<input id="verificationCode1" type="text" class="form-control input-code" placeholder="验证码">
+								</div>
+								<div class="col-sm-2 col-xs-2">
+									<span class="code" title='点击切换'></span>
+								</div>
+							</div>
+							<div class="form-group hidden" id="vercodebox"></div>
+							<div id="alertbox" role="alert"></div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button id="regButton" style="float: left;display: none;" class="btn btn-link rightbtn" data-toggle="modal"
+						 data-target="#regModal">
+							注册 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" id="dologinButton" class="btn btn-primary" onclick="userLogin()">登录</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade bs-example-modal-sm" id="regModal" tabindex="-1" role="ialog" aria-labelledby="loginModelTitle">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content" style="width: 350px;margin:0 auto;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">x</span>
+						</button>
+						<h4 class="modal-title" id="loginModelTitle">
+							<span class="glyphicon glyphicon-user"></span> 用户注册
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div id="myAlert3" class="alert alert-success fade in" style="display: none;"></div>
+						<div id="myAlert4" class="alert alert-warning fade in" style="display: none;"></div>
+						<form class="form-horizontal formRegister" id="registerfrom">
+							<div class="form-group" id="userNamebox">
+								<label for="userName" id="userNametitle" class="col-sm-3 col-xs-3 control-label">账户:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="text" class="form-control" id="userName" name="userName" placeholder="请输入账户……">
+								</div>
+							</div>
+							<div class="form-group" id="userPasswordbox">
+								<label for="userPassword" id="userPasswordtitle" class="col-sm-3 col-xs-3 control-label">密码:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="请输入密码……">
+								</div>
+							</div>
+							<div class="form-group" id="accountcheckpwdbox">
+								<label for="accountcheckpwd" id="accountcheckpwdtitle" class="col-sm-3 col-xs-3 control-label">确认:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="password" class="form-control" id="checkpwd" name="checkpwd" placeholder="请输入确认密码……">
+								</div>
+							</div>
+							<!-- <div class="form-group" id="userSexbox">
+								<label for="userSex" id="userSextitle" class="col-sm-3 col-xs-3 control-label">性别:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input id="man" type="radio" checked="checked" name="userSex" value="男" />&nbsp;&nbsp;男
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input id="woman" type="radio" name="userSex" value="女" />&nbsp;&nbsp;女
+								</div>
+							</div>
+							<div class="form-group" id="userEmailBox">
+								<label for="userEmail" id="userEmailtitle" class="col-sm-3 col-xs-3 control-label">年龄:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="text" class="form-control" id="userAge" name="userAge" placeholder="请输入年龄……">
+								</div>
+							</div>
+							<div class="form-group" id="userEmailBox">
+								<label for="userEmail" id="userEmailtitle" class="col-sm-3 col-xs-3 control-label">邮箱:</label>
+								<div class="col-sm-9 col-xs-9">
+									<input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="请输入邮箱……">
+								</div>
+							</div> -->
+							<div class="form-group hidden" id="vercodebox"></div>
+							<div id="alertbox" role="alert"></div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" id="dologinButton" class="btn btn-primary" onclick="userRegister()">注册</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="display" class="container" style="margin-top:35px;margin-bottom: 35px;">
+			<!-- <div class="table-responsive">
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p style="margin: 0;">
+									upset &nbsp; /ʌp'set/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; adj. 心烦意乱的；不安的；不适的 vt. (upset,upset) 使不安；使心烦
+								</p>
+							</td>
+						</tr>
+						<tr style="border-bottom: 1px solid #ddd;">
+							<td>
+								<p style="margin: 0;">
+									△ Nazi &nbsp; /'nɑ:tsi/ &nbsp;
+									英 <span id="play-1" class="iconfont icon-audio-high"></span>
+									美 <span id="play-a" class="iconfont icon-audio-high"></span>
+									&nbsp; n.纳粹党人 adj.纳粹党的
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div> -->
+
+			<div class="container box-position">
+				<div class="box" onclick="getUnit(1)">
+					<span>必修一</span>
+				</div>
+				<div class="box" onclick="getUnit(2)">
+					<span>必修二</span>
+				</div>
+				<div class="box" onclick="getUnit(3)">
+					<span>必修三</span>
+				</div>
+				<div class="box" onclick="getUnit(4)">
+					<span>必修四</span>
+				</div>
+				<div class="box" onclick="getUnit(5)">
+					<span>必修五</span>
+				</div>
+			</div>
+			<div class="container box-position">
+				<div class="box" onclick="getUnit(6)">
+					<span>选修六</span>
+				</div>
+				<div class="box" onclick="getUnit(7)">
+					<span>选修七</span>
+				</div>
+				<div class="box" onclick="getUnit(8)">
+					<span>选修八</span>
+				</div>
+				<div class="box" onclick="getUnit(9)">
+					<span>选修九</span>
+				</div>
+				<div class="box" onclick="getUnit(10)">
+					<span>选修十</span>
+				</div>
+			</div>
+			<!-- <br>
+			<br>
+			<br>
+			<div class="container box-position1">
+				<div class="card" onclick="backToChoice">
+					<img class="img" src="img/preview-prev.svg" >
+				</div>
+				<div class="card" onclick="getVocabulart(1, 1)">
+					<span>Unit 1</span>
+				</div>
+				<div class="card" onclick="getVocabulart('', 1)">
+					<span>Unit 2</span>
+				</div>
+				<div class="card" onclick="getVocabulart('', 1)">
+					<span>Unit 3</span>
+				</div>
+				<div class="card" onclick="getVocabulart('', 1)">
+					<span>Unit 4</span>
+				</div>
+				<div class="card" onclick="getVocabulart('', 1)">
+					<span>Unit 5</span>
+				</div>
+			</div> -->
+		</div>
+
+		<div id="pageBottom" class="exp-banner" style="display: none;">
+			<div class="container">
+				<div>
+					<ul id="page" class="pagination">
+						<li class="disabled"><span>&lt;</span></li>
+						<li class="active"><span>1</span></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li class="disabled"><span style="padding-left:10px;padding-right:10px;">...</span></li>
+						<li><a href="#">9</a></li>
+						<li><a href="#">&gt;</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery (Bootstrap 插件需要引入) -->
+		<script src="js/jquery.min.js"></script>
+		<!-- 包含了所有编译插件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/TweenLite.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/EasePack.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/rAF.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.code.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie-1.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vocabulary-2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/userLoginAndRegister.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

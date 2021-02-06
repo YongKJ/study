@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理系统登录</title>
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+</head>
+<body class="login-bg">
+    
+    <div class="login">
+        <div class="message">管理登录</div>
+        <div id="darkbannerwrap"></div>
+        
+        <form method="post" class="layui-form" >
+            <input name="userName" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
+            <hr class="hr15">
+            <input name="userPassword" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
+            <hr class="hr15">
+            <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
+            <hr class="hr20" >
+        </form>
+    </div>
+
+    <script>
+        $(function  () {
+            layui.config({
+                base: './js/'      //自定义layui组件的目录
+            }).extend({ //设定组件别名
+                cookie: 'cookie', // 如果相同可以不设置别名
+            });
+          
+            layui.use(['form', 'layer', 'jquery', 'cookie'], function(){
+              var $ = layui.jquery, form = layui.form, layer = layui.layer, cookie = layui.cookie;
+              
+              form.on('submit(login)', function(data){
+                
+                $.ajax({
+                  method: "POST",
+                  url: "/user/manageLogin", //提交表单的地址
+                  data: data.field, //提交表单的数据
+                  success: function(d) {
+                    var res = $.parseJSON(d);
+                    
+                    if(res.message.indexOf("成功") != -1) {
+                      if(typeof($.cookie('userUUID')) != "undefined") {
+                      	$.removeCookie('userUUID',{ path: '/'});
+                      }
+                      
+                      var expiresDate= new Date();
+                      expiresDate.setTime(expiresDate.getTime() + (1 * 24 * 60 * 60 * 1000));
+                      $.cookie('userUUID', res.userUUID,{
+                        expires: expiresDate, 
+                        path:'/'
+                      });
+                      
+                      if(typeof($.cookie('userUUID')) != "undefined") {
+                        layer.msg('登录成功！即将跳转网页！', {
+                          icon: 6,
+                          time: 2000
+                        });
+                        
+                        setTimeout(function(){
+                        	window.location.href = "manage.html";
+                        },2500);
+                      }else{
+                        layer.msg('登录失败！无法使用本地Cookie功能，请授予权限！', {
+                          icon: 2
+                        });
+                      }
+                    }else{
+                      layer.msg('登录失败！' + res.message, {
+                        icon: 2
+                      });
+                    }
+                    
+                  },
+                  error: function() {
+                    layer.msg('操作失败', {
+                      icon: 2
+                    });
+                  }
+                });
+                
+                return false;
+              });
+            });
+        })
+
+        
+    </script>
+
+    
+    <!-- 底部结束 -->
+    
+</body>
+</html>

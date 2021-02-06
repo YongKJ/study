@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "217375",
+      "name": "label",
+      "font_class": "label",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "6145418",
+      "name": "audio-high",
+      "font_class": "audio-high",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "6805533",
+      "name": "Translate",
+      "font_class": "Translate",
+      "unicode": "e9a5",
+      "unicode_decimal": 59813
+    },
+    {
+      "icon_id": "7712710",
+      "name": "remove",
+      "font_class": "remove",
+      "unicode": "e736",
+      "unicode_decimal": 59190
+    },
+    {
+      "icon_id": "12669158",
+      "name": "clipboard",
+      "font_class": "clipboard",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    }
+  ]
+}

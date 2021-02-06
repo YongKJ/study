@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.0</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <script src="../js/marked.min.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">文章管理</a>
+        <a>
+          <cite>文章列表</cite></a>
+      </span>
+      <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);"
+        title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+      <xblock>
+        <button id="delAll" class="layui-btn layui-btn-danger"><i class="layui-icon"></i>批量删除</button>
+        <button class="layui-btn" onclick="x_admin_show('添加文章','./article-add.html',600,600)"><i class="layui-icon"></i>添加</button>
+        <span id="total" class="x-right" style="line-height:40px"></span>
+      </xblock>
+
+      <table class="layui-table" id="layui_table_id" lay-filter="dataTable1"></table>
+
+    </div>
+
+    <script type="text/html" id="category">
+      {{# if(d.materialCategory.indexOf("essay") != -1) { }}
+        精彩短文
+      {{# }else if(d.materialCategory.indexOf("film") != -1) { }}
+        动画短片
+      {{# }else if(d.materialCategory.indexOf("song") != -1) { }}
+        英文歌曲
+      {{# }else if(d.materialCategory.indexOf("mv") != -1) { }}
+        音乐视频
+      {{# }else if(d.materialCategory.indexOf("grammar") != -1) { }}
+        英语语法
+      {{# }else if(d.materialCategory.indexOf("video") != -1) { }}
+        学习视频
+      {{# } }}
+    </script>
+    
+    <script type="text/html" id="operate">
+       <a onclick="x_admin_show('修改文章','article-edit.html?materialUUID={{d.materialUUID}}',600,600)" title="修改文章" href="javascript:;">
+        <i class="layui-icon">&#xe642;</i>
+      </a>
+      <a onclick="x_admin_show('更换文章封面图片','article-picture.html?materialUUID={{d.materialUUID}}',600,600)" title="更换图片" href="javascript:;">
+        <i class="layui-icon">&#xe631;</i>
+      </a>
+      <a title="删除文章" onclick="article_del('{{d.materialUUID}}')" href="javascript:;">
+        <i class="layui-icon">&#xe640;</i>
+      </a>
+    </script>
+
+    <script>
+      layui.use('table', function() {
+        var table = layui.table;
+        //第一个实例
+        table.render({
+          id: "dataTable1",
+          elem: '#layui_table_id',
+          height: 448,
+          url: '/material/getManageMaterialList', //数据接口
+          page: true,
+          limit: 10,
+          contentType: "application/x-www-form-urlencoded",
+          method: 'post',
+          cols: [
+            [ //表头
+              {
+                checkbox: true
+              }, {
+                field: 'materialTitle',
+                title: '文章名称',
+                width: 250,
+                align: 'center',
+                sort: true
+              }, {
+                field: 'materialContent',
+                title: '文章内容',
+                width: 280,
+                align: 'center',
+                sort: true
+              }, {
+                field: 'materialCategory',
+                title: '文章分类',
+                width: 280,
+                align: 'center',
+                sort: true,
+                templet: '#category'
+              }, {
+                field: 'materialAddTime',
+                title: '添加时间',
+                width: 280,
+                align: 'center',
+                sort: true
+              }, {
+                title: '操作',
+                width: 130,
+                align: 'center',
+                templet: '#operate'
+              }
+            ]
+          ],
+          done: function(res, curr, count) {
+            $("#total").html("共有数据：" + count + " 条");
+          }
+        });
+        
+        $('#delAll').click(function() {
+          layer.confirm('确认要删除选中的文章吗？', function() {
+            var checkStatusData = table.checkStatus('dataTable1').data;
+            for(var i = 0; i < checkStatusData.length; i++) {
+              delAllArticle(checkStatusData[i].materialUUID);
+            }
+            window.location.reload();
+          });
+        });
+
+      });
+
+      /*用户-删除*/
+      function article_del(materialUUID) {
+        layer.confirm('确认要删除吗？', function() {
+          $.ajax({
+            method: "POST",
+            url: "/material/delMaterial",
+            data: {
+              materialUUID: materialUUID
+            }, //提交表单的数据
+            success: function(res) {
+              window.location.reload();
+            },
+            error: function() {
+              layer.close(loading);
+              layer.msg('操作失败', {
+                icon: 2
+              });
+            }
+          });
+        });
+      }
+      
+      function delAllArticle(materialUUID) {
+        $.ajax({
+          method: "POST",
+          url: "/material/delMaterial",
+          data: {
+            materialUUID: materialUUID
+          }, //提交表单的数据
+          success: function(res) {},
+          error: function() {
+            layer.msg('操作失败', {
+              icon: 2
+            });
+          }
+        });
+      }
+      
+    </script>
+  </body>
+
+</html>

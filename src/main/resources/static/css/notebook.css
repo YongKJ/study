@@ -1,0 +1,60 @@
+.code {
+	position: relative;
+	right: 15px;
+	bottom: 3px;
+	border-radius: 5px;
+}
+
+.formRegister {
+	position: relative;
+	right: 11px;
+	top: 8px;
+}
+
+.trash {
+	float: right;
+	padding-top: 4px;
+}
+
+.trash:hover {
+	color: #409FB5;
+}
+
+@media screen and (max-width: 768px) {
+	.formRegister {
+		right: 0px;
+	}
+	.trash {
+		float: none;
+		margin-left: 20px;
+	}
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+	z-index: 2;
+	color: #3c9bf4;
+	background: #fff;
+	border-color: #fff;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+	position: relative;
+	float: left;
+	padding: 6px 8px;
+	margin-left: -1px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	background: transparent;
+	color: #fff;
+	border-color: #fff;
+	border: 1px solid #ddd;
+}
+
+::-webkit-scrollbar {
+	/*隐藏滚轮*/
+	display: none;
+}
