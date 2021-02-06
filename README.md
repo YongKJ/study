@@ -26,9 +26,9 @@
 #### 技术栈
 MySQL+SpringBoot+Spring+SpringMVC+MyBatis+HTML+CSS+JS+JQuery+Bootstrap3+Layui+Vue+Element UI
 
-1.  本项目同样采用前后端分离的开发方式，前端和后端通过json数据进行交互
+1.  本项目采用前后端分离的开发方式，前端和后端通过json数据进行交互
 2.  前端使用了 JQuery 框架 + Ajax 异步刷新来解析、渲染json数据，响应式布局主要采用 Bootstrap3 框架来完成
-3.  项目使用 SpringBoot 来整合 SSM 框架（Spring + SpringMVC + MyBatis），提高后端开发效率
+3.  后端则使用 SpringBoot 来整合 SSM 框架（Spring + SpringMVC + MyBatis），提高开发效率
 4.  使用 Jsoup 解析并获取网络上免费的英语学习资源
 5.  采用 MD5 的方式对用户密码进行加密处理
 6.  申请有道翻译 API 接口实现文本翻译功能
